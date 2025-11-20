@@ -1,11 +1,19 @@
 spring:
+  profiles:
+    active: local
   application:
     name: ziwan-ai-code-backend
-
+  #  数据库配置
+  datasource:
+    driver-class-name: ${datasource.driver-class-name}
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
 server:
   port: 8081
   servlet:
-      context-path: /api
+    context-path: /api
+
 
 # springdoc-openapi项目配置
 springdoc:
@@ -18,3 +26,13 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+
+  #  basic:
+  #    enable: true
+  #    username: ${knife4j.basic.username}
+  #    password: ${knife4j.basic.password}
+logging:
+  level:
+    root: info
+    com.example.ziwanaicodebackend: info
+
